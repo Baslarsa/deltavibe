@@ -9,8 +9,10 @@ const styles = {
         z-index: 5;
         margin: 0;
         padding: 0;
+        text-transform: uppercase;
     `,
     default: css`
+        margin: 1rem 0;
         padding: 0.5rem 1rem;
         background-color: ${COLORS.WHITE};
         color: ${COLORS.BLACK};
@@ -40,6 +42,7 @@ const styles = {
         }
     `,
     secondary: css`
+        margin: 1rem 0;
         padding: 0.5rem 1rem;
         background-color: ${COLORS.PRIM_BUTTON};
         color: ${COLORS.BLACK};

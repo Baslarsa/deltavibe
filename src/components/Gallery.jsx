@@ -6,6 +6,7 @@ import { css } from "@emotion/react";
 import ImageGallery from "react-image-gallery";
 import { useWindowWidth } from "@react-hook/window-size";
 import LoadingOverlay from "./LoadingOverlay";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = {
     wrapper: css`
@@ -47,19 +48,21 @@ const Gallery = () => {
     }, []);
 
     return (
-        <div css={styles.wrapper} id="gallery">
-            {isLoading ? (
-                <LoadingOverlay />
-            ) : (
-                <ImageGallery
-                    showPlayButton={false}
-                    showFullscreenButton={false}
-                    items={images}
-                    infinite={true}
-                    thumbnailPosition={width < 1024 ? "bottom" : "right"}
-                />
-            )}
-        </div>
+        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+            <div css={styles.wrapper} id="gallery">
+                {isLoading ? (
+                    <LoadingOverlay />
+                ) : (
+                    <ImageGallery
+                        showPlayButton={false}
+                        showFullscreenButton={false}
+                        items={images}
+                        infinite={true}
+                        thumbnailPosition={width < 1024 ? "bottom" : "right"}
+                    />
+                )}
+            </div>
+        </ScrollAnimation>
     );
 };
 

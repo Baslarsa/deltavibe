@@ -6,6 +6,7 @@ import H2 from "./text/H2";
 import Text from "./text/Text";
 import Button from "./Button";
 import { COLORS } from "../constants/constants";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = {
     outer: css`
@@ -53,17 +54,21 @@ const Hero = ({ big, title, subTitle, link }) => {
                 css={styles.wrapper}
                 style={{
                     backgroundImage: `url("${heroUrl}")`,
-                    height: big ? "700px" : "200px",
+                    height: big ? "900px" : "200px",
                 }}
             >
                 <div css={styles.heroText}>
-                    <H2 color={COLORS.WHITE}>{title}</H2>
-                    {subTitle && <Text color={COLORS.WHITE}>{subTitle}</Text>}
-                    {link && (
-                        <Button.Secondary link={link}>
-                            CONTACT NOW
-                        </Button.Secondary>
-                    )}
+                    <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                        <H2 color={COLORS.WHITE}>{title}</H2>
+                        {subTitle && (
+                            <Text color={COLORS.WHITE}>{subTitle}</Text>
+                        )}
+                        {link && (
+                            <Button.Secondary link={link}>
+                                CONTACT NOW
+                            </Button.Secondary>
+                        )}
+                    </ScrollAnimation>
                 </div>
             </div>
             <div css={styles.shade}></div>

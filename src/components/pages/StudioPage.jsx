@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Hero from "./Hero";
-import Banner from "./Banner";
-import Footer from "./Footer";
+import Hero from "../Hero";
+import Banner from "../Banner";
+import Footer from "../Footer";
 const endpoint = "http://localhost:1337";
 
 const StudioPage = () => {

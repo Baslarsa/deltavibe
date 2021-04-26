@@ -1,7 +1,17 @@
 import React from "react";
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 import { COLORS } from "../constants/constants";
+import { ReactComponent as LoadingSpinner } from "../constants/icons/loading.svg";
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+`;
 
 const styles = {
     wrapper: css`
@@ -13,16 +23,21 @@ const styles = {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: ${COLORS.WHITE};
-
         z-index: 5;
+        background-color: black;
+
+        transition: all 0.2s ease;
     `,
 };
 
 const LoadingOverlay = () => {
     return (
-        <div css={styles.wrapper} id="about">
-            Loading...
+        <div css={styles.wrapper}>
+            <LoadingSpinner
+                css={css`
+                    animation: ${rotate} 2s infinite;
+                `}
+            />
         </div>
     );
 };

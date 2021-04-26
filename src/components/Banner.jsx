@@ -7,6 +7,7 @@ import { COLORS } from "../constants/constants";
 import H2 from "./text/H2";
 import Text from "./text/Text";
 import Button from "./Button";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = {
     wrapper: css`
@@ -32,13 +33,15 @@ const Banner = ({ title, text, link, buttonTitle }) => {
     return (
         <div css={styles.wrapper} id="about">
             <div css={styles.innerWrapper}>
-                {title && <H2>{title}</H2>}
-                {text && <Text>{text}</Text>}
-                {link && (
-                    <Button.Default link={link}>
-                        {buttonTitle ? buttonTitle : "Read More"}
-                    </Button.Default>
-                )}
+                <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                    {title && <H2>{title}</H2>}
+                    {text && <Text>{text}</Text>}
+                    {link && (
+                        <Button.Default link={link}>
+                            {buttonTitle ? buttonTitle : "Read More"}
+                        </Button.Default>
+                    )}
+                </ScrollAnimation>
             </div>
         </div>
     );

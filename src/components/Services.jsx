@@ -4,12 +4,14 @@ import axios from "axios";
 import { css } from "@emotion/react";
 import { COLORS } from "../constants/constants";
 import Blurb from "./Blurb";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = {
     wrapper: css`
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         color: ${COLORS.BLACK};
     `,
 };
@@ -29,18 +31,20 @@ const Services = () => {
     }, []);
     console.log(data);
     return (
-        <div css={styles.wrapper} id="about">
-            {data.map((service) => (
-                <Blurb
-                    image={endpoint + service.Image.url}
-                    title={service.Title}
-                    text={service.Text}
-                    descr={service.Description}
-                    key={service.id}
-                    link="/services"
-                />
-            ))}
-        </div>
+        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+            <div css={styles.wrapper} id="about">
+                {data.map((service) => (
+                    <Blurb
+                        image={endpoint + service.Image.url}
+                        title={service.Title}
+                        text={service.Text}
+                        descr={service.Description}
+                        key={service.id}
+                        link="/services"
+                    />
+                ))}
+            </div>
+        </ScrollAnimation>
     );
 };
 

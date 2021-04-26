@@ -7,7 +7,8 @@ import Text from "./text/Text";
 import Button from "./Button";
 import { useWindowWidth } from "@react-hook/window-size";
 import { COLORS } from "../constants/constants";
-import Form from "./Form";
+import ContactForm from "./ContactForm";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = {
     outer: css`
@@ -64,15 +65,17 @@ const ContactSection = () => {
         getData();
     }, []);
     return (
-        <div css={styles.outer}>
-            <H2>{data.Title}</H2>
-            <div css={styles.inner}>
-                <div css={styles.text}>
-                    <Text>{data.Text}</Text>
+        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+            <div css={styles.outer}>
+                <H2>{data.Title}</H2>
+                <div css={styles.inner}>
+                    <div css={styles.text}>
+                        <Text>{data.Text}</Text>
+                    </div>
+                    <ContactForm />
                 </div>
-                <Form />
             </div>
-        </div>
+        </ScrollAnimation>
     );
 };
 

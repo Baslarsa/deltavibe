@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useWindowWidth } from "@react-hook/window-size";
 import { COLORS } from "../constants/constants";
 import H2 from "../components/text/H2.jsx";
 import H3 from "../components/text/H3.jsx";
 import Text from "../components/text/Text.jsx";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const styles = {
     wrapper: css`
@@ -44,6 +44,10 @@ const styles = {
             padding: 2rem;
         }
     `,
+    innerWrap: css`
+        height: 100%;
+        width: 100%;
+    `,
 };
 
 const endpoint = "http://localhost:1337";
@@ -70,12 +74,20 @@ const About = () => {
         <div css={styles.wrapper} id="about">
             <div css={styles.halfSection}>
                 <div css={styles.innerContainer}>
-                    <H3>{title}</H3>
-                    <Text>{text}</Text>
+                    <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                        <H3>{title}</H3>
+                        <Text>{text}</Text>
+                    </ScrollAnimation>
                 </div>
             </div>
             <div css={styles.halfSection}>
-                <img src={imgUrl} alt="about-image"></img>
+                <ScrollAnimation
+                    animateIn="fadeIn"
+                    animateOut="fadeOut"
+                    css={styles.innerWrap}
+                >
+                    <img src={imgUrl} alt="about-image"></img>
+                </ScrollAnimation>
             </div>
         </div>
     );

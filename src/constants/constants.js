@@ -13,4 +13,6 @@ export const FONTS = {
 
 export const SIZE = {
     NAV: "18px",
+    BODY: "16px",
+    SMALL: "14px",
 };

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Hero from "./Hero";
-import Banner from "./Banner";
-import Footer from "./Footer";
-import ServiceCard from "./ServiceCard";
+import Hero from "../Hero";
+import Banner from "../Banner";
+import Footer from "../Footer";
+import ServiceCard from "../ServiceCard";
+import ContactSection from "../ContactSection";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import * as react from "@emotion/react";
-import ContactSection from "./ContactSection";
 
 const endpoint = "http://localhost:1337";
 

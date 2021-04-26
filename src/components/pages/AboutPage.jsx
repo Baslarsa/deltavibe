@@ -1,8 +1,8 @@
 import React from "react";
-import About from "./About";
-import ContactSection from "./ContactSection";
-import Footer from "./Footer";
-import Hero from "./Hero";
+import About from "../About";
+import ContactSection from "../ContactSection";
+import Footer from "../Footer";
+import Hero from "../Hero";
 
 const AboutPage = () => {
     return (

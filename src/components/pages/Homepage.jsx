@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import Hero from "./Hero";
-import About from "./About";
-import Services from "./Services";
-import Banner from "./Banner";
-import Gallery from "./Gallery";
-import ContactSection from "./ContactSection";
-import Footer from "./Footer";
-import LoadingOverlay from "./LoadingOverlay";
+import Hero from "../Hero";
+import About from "../About";
+import Services from "../Services";
+import Banner from "../Banner";
+import Gallery from "../Gallery";
+import ContactSection from "../ContactSection";
+import Footer from "../Footer";
+import LoadingOverlay from "../LoadingOverlay";
 
 const endpoint = "http://localhost:1337";
 
