@@ -7,6 +7,7 @@ import ImageGallery from "react-image-gallery";
 import { useWindowWidth } from "@react-hook/window-size";
 import LoadingOverlay from "./LoadingOverlay";
 import ScrollAnimation from "react-animate-on-scroll";
+import { ENDPOINT } from "../constants/constants";
 
 const styles = {
     wrapper: css`
@@ -19,7 +20,7 @@ const styles = {
     `,
 };
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const Gallery = () => {
     const width = useWindowWidth();
@@ -31,11 +32,10 @@ const Gallery = () => {
             const imageArr = [];
             let data = await axios(endpoint + "/studioimages").then(
                 (response) => {
-                    console.log(response.data[0]);
                     response.data[0].image.map((item) => {
                         images.push({
-                            original: endpoint + item.formats.large.url,
-                            thumbnail: endpoint + item.formats.thumbnail.url,
+                            original: item.formats.large.url,
+                            thumbnail: item.formats.thumbnail.url,
                             sizes: "small",
                         });
                     });

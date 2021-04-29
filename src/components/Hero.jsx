@@ -5,8 +5,10 @@ import { css } from "@emotion/react";
 import H2 from "./text/H2";
 import Text from "./text/Text";
 import Button from "./Button";
-import { COLORS } from "../constants/constants";
+import { COLORS, ENDPOINT } from "../constants/constants";
 import ScrollAnimation from "react-animate-on-scroll";
+import SiteLogo from "./SiteLogo";
+import { useWindowWidth } from "@react-hook/window-size";
 
 const styles = {
     outer: css`
@@ -36,14 +38,17 @@ const styles = {
     `,
 };
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const Hero = ({ big, title, subTitle, link }) => {
+    const width = useWindowWidth();
+    const isMobile = width < 1024;
     const [heroUrl, setHeroUrl] = useState("");
+
     useEffect(() => {
         async function getHeroUrl() {
             await axios(`${endpoint}/homepage`).then((response) => {
-                setHeroUrl(endpoint + response.data.CoverImage.url);
+                setHeroUrl(response.data.CoverImage.url);
             });
         }
         getHeroUrl();
@@ -54,11 +59,12 @@ const Hero = ({ big, title, subTitle, link }) => {
                 css={styles.wrapper}
                 style={{
                     backgroundImage: `url("${heroUrl}")`,
-                    height: big ? "900px" : "200px",
+                    height: big ? "900px" : "210px",
                 }}
             >
                 <div css={styles.heroText}>
                     <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                        {isMobile && big ? <SiteLogo /> : null}
                         <H2 color={COLORS.WHITE}>{title}</H2>
                         {subTitle && (
                             <Text color={COLORS.WHITE}>{subTitle}</Text>

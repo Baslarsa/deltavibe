@@ -3,7 +3,7 @@ import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import Text from "./text/Text";
-import { COLORS, FONTS } from "../constants/constants";
+import { COLORS, ENDPOINT, FONTS } from "../constants/constants";
 import Button from "./Button";
 import SiteLogo from "./SiteLogo";
 import H3 from "./text/H3";
@@ -59,7 +59,7 @@ const styles = {
 
 const Footer = () => {
     const [data, setData] = useState([]);
-    const endpoint = "http://localhost:1337";
+    const endpoint = ENDPOINT;
 
     useEffect(() => {
         async function getData() {

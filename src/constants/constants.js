@@ -15,4 +15,7 @@ export const SIZE = {
     NAV: "18px",
     BODY: "16px",
     SMALL: "14px",
+    SMALLER: "12px",
 };
+
+export const ENDPOINT = "https://jonassiren.ew.r.appspot.com";

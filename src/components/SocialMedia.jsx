@@ -9,7 +9,7 @@ import { ReactComponent as LinkedinIcon } from "../constants/icons/social/linked
 import { ReactComponent as InstagramIcon } from "../constants/icons/social/instagram.svg";
 import { ReactComponent as YoutubeIcon } from "../constants/icons/social/youtube.svg";
 
-import { COLORS } from "../constants/constants";
+import { COLORS, ENDPOINT } from "../constants/constants";
 import H2 from "./text/H2";
 
 const styles = {
@@ -32,7 +32,7 @@ const styles = {
         }
     `,
 };
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 const SocialMedia = () => {
     const [data, setData] = useState("");
     const [isLoading, setIsLoading] = useState(true);

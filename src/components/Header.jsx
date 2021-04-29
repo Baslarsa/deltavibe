@@ -69,7 +69,11 @@ const Header = () => {
                     )}
                 </div>
             )}
-            {isMobile ? <MobileNavBar toggleState={isOpen} /> : <NavBar />}
+            {isMobile ? (
+                <MobileNavBar toggleState={isOpen} onClick={handleNavToggle} />
+            ) : (
+                <NavBar />
+            )}
         </div>
     );
 };

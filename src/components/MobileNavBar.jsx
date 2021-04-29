@@ -33,19 +33,27 @@ const styles = {
     `,
 };
 
-const MobileNavBar = ({ toggleState }) => {
+const MobileNavBar = ({ toggleState, onClick }) => {
     return (
         <nav
             css={styles.navContainer}
             style={{ width: toggleState ? "80%" : "0" }}
         >
-            <NavLink exact to="/">
+            <NavLink exact to="/" onClick={onClick}>
                 Home
             </NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/services">Services</NavLink>
-            <NavLink to="/studio">Studio</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/about" onClick={onClick}>
+                About
+            </NavLink>
+            <NavLink to="/services" onClick={onClick}>
+                Services
+            </NavLink>
+            <NavLink to="/studio" onClick={onClick}>
+                Studio
+            </NavLink>
+            <NavLink to="/contact" onClick={onClick}>
+                Contact
+            </NavLink>
         </nav>
     );
 };

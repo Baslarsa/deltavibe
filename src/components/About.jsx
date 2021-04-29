@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { COLORS } from "../constants/constants";
-import H2 from "../components/text/H2.jsx";
+import { COLORS, ENDPOINT } from "../constants/constants";
 import H3 from "../components/text/H3.jsx";
 import Text from "../components/text/Text.jsx";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -44,13 +43,9 @@ const styles = {
             padding: 2rem;
         }
     `,
-    innerWrap: css`
-        height: 100%;
-        width: 100%;
-    `,
 };
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const About = () => {
     const [imgUrl, setImgUrl] = useState("");
@@ -62,7 +57,7 @@ const About = () => {
             let data = await axios(endpoint + "/homepage").then((result) => {
                 setTitle(result.data.About.title);
                 setText(result.data.About.text);
-                setImgUrl(endpoint + result.data.About.image[0].url);
+                setImgUrl(result.data.About.image[0].url);
                 // setText(result.data.About);
                 // setImgUrl(endpoint + result.data.Aboutimage[0].url);
             });
@@ -81,13 +76,7 @@ const About = () => {
                 </div>
             </div>
             <div css={styles.halfSection}>
-                <ScrollAnimation
-                    animateIn="fadeIn"
-                    animateOut="fadeOut"
-                    css={styles.innerWrap}
-                >
-                    <img src={imgUrl} alt="about-image"></img>
-                </ScrollAnimation>
+                <img src={imgUrl} alt="about-image"></img>
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ import P from "./text/P";
 
 const styles = {
     wrapper: css`
-        width: calc(100% / 3);
+        width: calc(100% / 5);
         height: 600px;
         padding: 2rem;
         box-sizing: border-box;
@@ -60,6 +60,7 @@ const styles = {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     `,
 };
 

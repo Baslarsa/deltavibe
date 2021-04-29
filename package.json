@@ -10,6 +10,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
     "babel-plugin-emotion": "^11.0.0",
+    "dotenv": "^8.2.0",
     "formik": "^2.2.6",
     "react": "^17.0.1",
     "react-animate-on-scroll": "^2.1.5",

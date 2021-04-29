@@ -18,7 +18,7 @@ const styles = {
             text-decoration: none;
             color: ${COLORS.WHITE};
             font-size: ${SIZE.NAV};
-            font-family: ${FONTS.MAIN};
+            font-family: ${FONTS.TITLES};
             padding: 0.5rem 1rem;
             font-weight: 500;
             margin: 0 0.5rem;

@@ -7,11 +7,13 @@ import About from "../About";
 import Services from "../Services";
 import Banner from "../Banner";
 import Gallery from "../Gallery";
+import Portfolio from "../Portfolio";
 import ContactSection from "../ContactSection";
 import Footer from "../Footer";
 import LoadingOverlay from "../LoadingOverlay";
+import { ENDPOINT } from "../../constants/constants";
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const styles = {
     wrapper: css``,
@@ -53,6 +55,7 @@ const HomePage = () => {
                     <Services />
                     <Banner title={data.Studio.Title} text={data.Studio.Text} />
                     <Gallery />
+                    <Portfolio />
                     <ContactSection />
                     <Footer />
                 </>

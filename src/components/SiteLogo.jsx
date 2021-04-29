@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/react";
+import { ENDPOINT } from "../constants/constants";
 
 const styles = {
     container: css`
@@ -12,7 +13,7 @@ const styles = {
         width: 100%;
     `,
 };
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 const SiteLogo = ({ size }) => {
     const [siteLogoUrl, setSiteLogoUrl] = useState("");
     const [imageSize, setImageSize] = useState("");
@@ -20,7 +21,7 @@ const SiteLogo = ({ size }) => {
     useEffect(() => {
         async function getSiteLogoUrl() {
             await axios(`${endpoint}/sitelogo`).then((response) => {
-                setSiteLogoUrl(endpoint + response.data.Image.url);
+                setSiteLogoUrl(response.data.Image.url);
             });
         }
         getSiteLogoUrl();
@@ -35,6 +36,7 @@ const SiteLogo = ({ size }) => {
             case "small":
                 setImageSize("200px");
             default:
+                break;
         }
     }, []);
 

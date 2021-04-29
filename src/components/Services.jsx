@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { COLORS } from "../constants/constants";
+import { COLORS, ENDPOINT } from "../constants/constants";
 import Blurb from "./Blurb";
 import ScrollAnimation from "react-animate-on-scroll";
 
@@ -16,7 +16,7 @@ const styles = {
     `,
 };
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const Services = () => {
     const [data, setData] = useState([]);
@@ -29,13 +29,13 @@ const Services = () => {
         }
         getData();
     }, []);
-    console.log(data);
+
     return (
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
             <div css={styles.wrapper} id="about">
                 {data.map((service) => (
                     <Blurb
-                        image={endpoint + service.Image.url}
+                        image={service.Image.url}
                         title={service.Title}
                         text={service.Text}
                         descr={service.Description}

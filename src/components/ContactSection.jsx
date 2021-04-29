@@ -6,7 +6,7 @@ import H2 from "./text/H2";
 import Text from "./text/Text";
 import Button from "./Button";
 import { useWindowWidth } from "@react-hook/window-size";
-import { COLORS } from "../constants/constants";
+import { COLORS, ENDPOINT } from "../constants/constants";
 import ContactForm from "./ContactForm";
 import ScrollAnimation from "react-animate-on-scroll";
 
@@ -53,7 +53,7 @@ const styles = {
 
 const ContactSection = () => {
     const [data, setData] = useState([]);
-    const endpoint = "http://localhost:1337";
+    const endpoint = ENDPOINT;
 
     useEffect(() => {
         async function getData() {

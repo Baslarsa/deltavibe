@@ -3,11 +3,12 @@ import axios from "axios";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useWindowWidth } from "@react-hook/window-size";
-import { COLORS } from "../constants/constants";
+import { COLORS, ENDPOINT } from "../constants/constants";
 import H2 from "./text/H2";
 import Text from "./text/Text";
 import Button from "./Button";
 import ScrollAnimation from "react-animate-on-scroll";
+import Gallery from "./Gallery";
 
 const styles = {
     wrapper: css`
@@ -15,9 +16,13 @@ const styles = {
         display: flex;
         color: ${COLORS.BLACK};
         padding-bottom: 2rem;
+
+        justify-content: center;
+        align-items: center;
     `,
     innerWrapper: css`
         padding: 2rem 10rem;
+
         @media screen and (max-width: 1024px) {
             padding: 2rem 5rem;
         }
@@ -27,7 +32,7 @@ const styles = {
     `,
 };
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const Banner = ({ title, text, link, buttonTitle }) => {
     return (

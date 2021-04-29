@@ -8,8 +8,9 @@ import ContactSection from "../ContactSection";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import * as react from "@emotion/react";
+import { ENDPOINT } from "../../constants/constants";
 
-const endpoint = "http://localhost:1337";
+const endpoint = ENDPOINT;
 
 const styles = {
     container: css`
